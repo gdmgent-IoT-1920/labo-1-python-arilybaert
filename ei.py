@@ -2,6 +2,8 @@
 from random import randint
 
 number = str(9099)
+numberBackup = number
+
 # str(randint(1000,9999))
 usergues = ' '
 tries = 0
@@ -16,26 +18,15 @@ while usergues != number:
         if x in number:
             indexNumber = number.find(x)
             indexGues = usergues.find(x)
+            usergues = change_char(number, number.index(x), "X")
             if indexNumber == indexGues:
                 kippen += 1
-                number = change_char(number, number.index(x), "Z")
+                number = change_char(number, number.index(x), "X")
             else:
                 eieren += 1
 
-
-            # if number[number.index(x)] == usergues[number.index(x)]:
-            #     print('1ste: ' + str(number[number.index(x)]))
-            #     print('2de: ' + str(usergues[usergues.index(x)]))
-            #     kippen += 1
-            #     change_char(number, number.index(x), "W")
-            #     # if number.index(x) != usergues.index(x):
-            #     #     eieren += 1
-            #     print('number: ' + number)
-
-        elif x in number and number.index(x) != usergues.index(x):
-            eieren += 1
-
     print('je hebt ' + str(eieren) + ' eieren en ' + str(kippen) + ' kippen')
+    number = numberBackup
     print('secret number: ' + number)
 
 print('Horaaaa!')
