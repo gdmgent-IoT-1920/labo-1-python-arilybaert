@@ -13,14 +13,24 @@ while usergues != number:
     eieren = 0
     tries += 1
     for x in usergues:
-        if x in number and number[number.index(x)] == usergues[number.index(x)]:
-            print('1ste: ' + str(number[number.index(x)]))
-            print('2de: ' + str(usergues[usergues.index(x)]))
-            kippen += 1
-            change_char(number, number.index(x), "W")
-            # if number.index(x) != usergues.index(x):
-            #     eieren += 1
-            print('number: ' + number)
+        if x in number:
+            indexNumber = number.find(x)
+            indexGues = usergues.find(x)
+            if indexNumber == indexGues:
+                kippen += 1
+                number = change_char(number, number.index(x), "Z")
+            else:
+                eieren += 1
+
+
+            # if number[number.index(x)] == usergues[number.index(x)]:
+            #     print('1ste: ' + str(number[number.index(x)]))
+            #     print('2de: ' + str(usergues[usergues.index(x)]))
+            #     kippen += 1
+            #     change_char(number, number.index(x), "W")
+            #     # if number.index(x) != usergues.index(x):
+            #     #     eieren += 1
+            #     print('number: ' + number)
 
         elif x in number and number.index(x) != usergues.index(x):
             eieren += 1
